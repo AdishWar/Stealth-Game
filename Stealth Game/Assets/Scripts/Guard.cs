@@ -24,6 +24,7 @@ public class Guard : MonoBehaviour {
     IEnumerator FollowPath(Vector3[] wayPoints) 
     {
         transform.position = wayPoints[0];
+
         int nextWaypointIndex = 1;
         Vector3 nextWaypoint = wayPoints[nextWaypointIndex];
         transform.LookAt(nextWaypoint);
@@ -47,7 +48,7 @@ public class Guard : MonoBehaviour {
     IEnumerator TurnToFace(Vector3 faceTarget)
     {
         Vector3 dirLookTarget = (faceTarget - transform.position).normalized;
-        float targetAngle = 90 - Mathf.Atan2(dirLookTarget.z, dirLookTarget.x) * Mathf.Deg2Rad;
+        float targetAngle = 90 - Mathf.Atan2(dirLookTarget.z, dirLookTarget.x) * Mathf.Rad2Deg;
 
         while(Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.y, targetAngle) ) >= 0.5f )
         {
