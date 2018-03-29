@@ -135,7 +135,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 303506785}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1384249452}
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 509511799}
   - component: {fileID: 509511798}
   - component: {fileID: 509511797}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 509511796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.24, y: 1.64, z: 4.29}
+  m_LocalPosition: {x: 6.82, y: 1.64, z: 4.29}
   m_LocalScale: {x: 3.1923728, y: 3.1923723, z: 3.1923723}
   m_Children: []
   m_Father: {fileID: 0}
@@ -321,7 +321,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &736951177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,6 +337,11 @@ MonoBehaviour:
   speed: 10
   waitTime: 0.5
   turnSpeed: 90
+  spotlight: {fileID: 1108631686}
+  viewDistance: 10
+  Obstacle:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!23 &736951178
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -446,7 +451,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.4901961, g: 0.4901961, b: 0.4901961, a: 0}
+  m_BackGroundColor: {r: 0.5735294, g: 0.5735294, b: 0.5735294, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -479,8 +484,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 894098708}
-  m_LocalRotation: {x: -0.3927015, y: 0.28849372, z: -0.13123246, w: -0.8633278}
-  m_LocalPosition: {x: 19.375101, y: 23.317223, z: -22.817871}
+  m_LocalRotation: {x: -0.47713196, y: 0.0052658347, z: -0.0028845735, w: -0.8788112}
+  m_LocalPosition: {x: 0.6314054, y: 13.535312, z: -7.395159}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -623,7 +628,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1108631684}
   m_LocalRotation: {x: 0.19121455, y: -0, z: -0, w: 0.9815483}
-  m_LocalPosition: {x: 0, y: 0.17, z: 0.01}
+  m_LocalPosition: {x: 0, y: 0.594, z: 0.422}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 736951181}
@@ -639,16 +644,16 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 0.9488844, g: 1, b: 0.4705882, a: 1}
-  m_Intensity: 31.02
+  m_Intensity: 19.1
   m_Range: 10
-  m_SpotAngle: 87
+  m_SpotAngle: 96
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.05
+    m_Bias: 0
     m_NormalBias: 0.4
     m_NearPlane: 0.2
   m_Cookie: {fileID: 0}
@@ -660,7 +665,7 @@ Light:
     m_Bits: 4294967295
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -702,7 +707,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1384249452}
   m_Layer: 0
-  m_Name: waypoint
+  m_Name: waypoint (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -764,7 +769,7 @@ GameObject:
   - component: {fileID: 1583515334}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -843,7 +848,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1583515328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0.57, y: 0.5, z: 2.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -890,7 +895,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.42
+  m_Intensity: 0.24
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
