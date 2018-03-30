@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Guard : MonoBehaviour {
@@ -16,6 +15,9 @@ public class Guard : MonoBehaviour {
     public LayerMask Obstacle;
     Transform playerTransform;
     Color originalSpotlightColor;
+
+    public float timeToSpotPlayer = 0.5f;
+    float playerVisibleTimer;
 
     private void Start()
     {
@@ -35,7 +37,7 @@ public class Guard : MonoBehaviour {
 
     private void Update()
     {
-        if (IsPlayerVisible())
+        if ( IsPlayerVisible() )
         {
             spotlight.color = Color.red;
         } else
