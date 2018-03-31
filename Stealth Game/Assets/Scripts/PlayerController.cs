@@ -13,15 +13,23 @@ public class PlayerController : MonoBehaviour {
     float smoothMoveVelocity;
     Vector3 velocity;
 
+    bool playerDisabled;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
+        Guard.PlayerSpotted += disable;
     }
 
     private void Update() {
 
-        Vector3 inputDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
+        Vector3 inputDirection = Vector3.zero;
+
+        if (!playerDisabled)
+        {
+            inputDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
+        }
+
         float inputMagnitude = inputDirection.magnitude;
         float turnAngle = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg;
 
@@ -31,6 +39,16 @@ public class PlayerController : MonoBehaviour {
 
         velocity = inputDirection * moveSpeed * smoothInputMagnitude;
 
+    }
+
+    void disable()
+    {
+        playerDisabled = true;
+    }
+
+    private void OnDestroy()
+    {
+        Guard.PlayerSpotted -= disable;
     }
 
     private void FixedUpdate()

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Guard : MonoBehaviour {
 
+    public static event System.Action PlayerSpotted;
+
     public Transform pathHolder;
     public float speed = 10;
     public float waitTime = 0.5f;
@@ -50,7 +52,10 @@ public class Guard : MonoBehaviour {
 
         if (playerVisibleTimer >= timeToSpotPlayer)
         {
-
+            if(PlayerSpotted != null)
+            {
+                PlayerSpotted();
+            }
         }
     }
 
