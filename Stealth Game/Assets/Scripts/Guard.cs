@@ -39,10 +39,18 @@ public class Guard : MonoBehaviour {
     {
         if ( IsPlayerVisible() )
         {
-            spotlight.color = Color.red;
+            playerVisibleTimer +=Time.deltaTime;
         } else
         {
-            spotlight.color = originalSpotlightColor;
+            playerVisibleTimer -= Time.deltaTime;
+        }
+
+        playerVisibleTimer = Mathf.Clamp(playerVisibleTimer, 0, timeToSpotPlayer);
+        spotlight.color = Color.Lerp(originalSpotlightColor, Color.red, playerVisibleTimer/timeToSpotPlayer);
+
+        if (playerVisibleTimer >= timeToSpotPlayer)
+        {
+
         }
     }
 
