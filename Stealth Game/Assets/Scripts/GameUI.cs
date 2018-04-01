@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class GameUI : MonoBehaviour {
@@ -8,13 +7,14 @@ public class GameUI : MonoBehaviour {
     public GameObject loseUI;
     bool isGameOver;
 
-	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         Guard.PlayerSpotted += showGameLoseUI;
+        FindObjectOfType<PlayerController> ().OnReachingEnd += showGameWinUI;
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		if (isGameOver && Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene(0);

@@ -2,6 +2,8 @@
 
 public class PlayerController : MonoBehaviour {
 
+    public event System.Action OnReachingEnd;
+
     public float moveSpeed = 10;
     public float smoothMoveTime = 0.1f;
     public float turnSpeed = 8;
@@ -36,7 +38,6 @@ public class PlayerController : MonoBehaviour {
         smoothInputMagnitude = Mathf.SmoothDamp(smoothInputMagnitude, inputMagnitude, ref smoothMoveVelocity, smoothMoveTime);
         angle = Mathf.LerpAngle(angle, turnAngle, turnSpeed * inputMagnitude * Time.deltaTime);
 
-
         velocity = inputDirection * moveSpeed * smoothInputMagnitude;
 
     }
@@ -49,6 +50,18 @@ public class PlayerController : MonoBehaviour {
     private void OnDestroy()
     {
         Guard.PlayerSpotted -= disable;
+    }
+
+    private void OnTriggerEnter(Collider hitCollider)
+    {
+        if(hitCollider.tag == "Finish")
+        {
+            disable();
+            if (OnReachingEnd != null)
+            {
+                OnReachingEnd();
+            }
+        }
     }
 
     private void FixedUpdate()
